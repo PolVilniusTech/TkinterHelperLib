@@ -23,6 +23,6 @@ addWidget('text', root, row = 2, column = 0, text = 'Hello Text', height = 5, wi
 
 addWidget('label', root, row = 3, column = 0, text = 'Hello World', height = None, width = None, padx = 0, font = None, insert = None, buttonCmd = None, buttonCmdArgs = None, bg = None, fg = None, pady = 0, scrollable = False, menuLabels = None, menuCmds = None, imageName = None)
 
-addWidget('image', root, row = 4, column = 0, text = 'The Lock', height = None, width = None, padx = 0, font = None, insert = None, buttonCmd = None, buttonCmdArgs = None, bg = None, fg = None, pady = 0, scrollable = False, menuLabels = None, menuCmds = None, imageName = 'lock.png')
+addWidget('image', root, row = 4, column = 0, text = 'The Lock', height = None, width = None, padx = 0, font = None, insert = None, buttonCmd = None, buttonCmdArgs = None, bg = None, fg = None, pady = 0, scrollable = False, menuLabels = None, menuCmds = None, imageName = 'filename.png')
 
 root.mainloop()
