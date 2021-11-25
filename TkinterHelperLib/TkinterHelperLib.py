@@ -5,10 +5,10 @@
 
 #At the moment, the library is made up of four functions which are listed and described below. I plan to update and expand the library soon. My next update should include the addWidget function allowing a type 'entry'. Let me know if you have any ideas for updates!(:
 
-
+from os import path
 from tkinter.scrolledtext import ScrolledText
 from tkinter import Tk, Label, Text, Button, Menu, END, INSERT
-
+from PIL import Image, ImageTk
 
 #   MAKEROOT FUNCTION:
 #       purpose: makes "root" AKA a tkinter window object. This is like the blank page where you will place your widget(s)
@@ -41,7 +41,7 @@ def makeRoot(title, size = '1000x500', bg = None):
 #           |   |     'text' : textbox widget where both developer and user may input text. Modifiable values are height, width, font, bg, fg, padx, pady
 #           |   |     'button' : button widget. Can hold text and also run a function upon user's click. Modifiable Values are text, width, font, bg, fg, buttonCmd, buttonCmdArgs, padx, pady
 #           |   |      'menu' : menu located at top of root containing series of buttons. Modifiable values are: menuLabels, menuCmds
-#           |   |
+#           |   |      'image' : image or simple text 
 #           |    root : tkinter (tk) window object in which the widget is to be placed. NOTE: for some widgets, root can be replaced with frame. see tkinter docs for more info on which widgets this applies to
 #           |
 #            RECOMMENDED (hint-- you can ignore these when calling the function, but if you plan on using it more than once on the same root or frame it will result in things getting very messy as it will always place the new widget on the grid at coordinates (0, 0)):
@@ -65,7 +65,7 @@ def makeRoot(title, size = '1000x500', bg = None):
 #     output:
 #           res : tkinter widget
 
-def addWidget(type, root, row = 0, column=0, text = None, height = None, width = None, padx = 0, font = None, insert = None, buttonCmd = None, buttonCmdArgs = None, bg = None, fg = None, pady = 0, scrollable = False, menuLabels = None, menuCmds = None):
+def addWidget(type, root, row = 0, column=0, text = None, height = None, width = None, padx = 0, font = None, insert = None, buttonCmd = None, buttonCmdArgs = None, bg = None, fg = None, pady = 0, scrollable = False, menuLabels = None, menuCmds = None, imageName = None):
     if type == 'label':
         res = Label(root, text=text, font=font, bg = bg, fg = fg)
     elif type == 'text':
@@ -88,6 +88,13 @@ def addWidget(type, root, row = 0, column=0, text = None, height = None, width =
                 i += 1
             root.config(menu = res)
             return res
+    elif type == 'image':
+        if imageName is not None and path.exists(imageName):
+            logo = Image.open(imageName)
+            logo = ImageTk.PhotoImage(logo)
+            res = Label(root, text = text, font = font, bg = bg, fg = fg, image = logo)
+       else:
+            res = Label(root, text = text, font = font, bg = bg, fg = fg)
     else:
         return
         
