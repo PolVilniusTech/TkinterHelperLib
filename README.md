@@ -10,3 +10,15 @@ When I first got into programming I remember being very frustrated because I nev
 At the moment, the library is made up of four functions which are listed and described below. I plan to update and expand the library soon. My next update should include the addWidget function allowing a type 'entry'. Let me know if you have any ideas for updates!(:
 
 © 2021 GitHub, Inc.
+
+Post Scriptum
+
+# PolVilniusTech (2022)
+
+PolVilniusTech rewrote this and gave some Samples of Lib Structure.
+Pre-requirements:
+* python3
+* module Tk
+* module Pillow
+* module pil.imagetk
+* provide full_path into "TkinterHelperLib" directory, which is in this repository for very Simple TestingTheTkinter.py case of use (row no. 6).
